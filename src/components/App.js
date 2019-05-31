@@ -4,6 +4,7 @@ import Search from './Search.js';
 import HikingList from './HikingList.js';
 
 import api from '../services/api.js';
+import hashStorage from '../hash-storage.js';
 
 class App extends Component {
     render() {
@@ -20,9 +21,14 @@ class App extends Component {
         main.appendChild(hikingListDOM);
 
         window.addEventListener('hashchange', () => {
+            const searchString = hashStorage.get().search;
+
             api.getHikes().then(hikes => {
                 console.log(hikes.trails);
-                hikingList.update({ hikes: hikes.trails });
+                const filtered = hikes.trails.filter(trail => {
+                    return trail.name.includes(searchString);
+                });
+                hikingList.update({ hikes: filtered });
             });
         });
         
