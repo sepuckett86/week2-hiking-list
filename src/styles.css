@@ -10,5 +10,8 @@ h2 {
 
 body {
     font-family: 'Open Sans', sans-serif;
-    background: lightsteelblue;
+    background-image: url('../assets/hiker-background.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vh;
 }
