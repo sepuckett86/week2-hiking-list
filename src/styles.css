@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css?family=Acme|Open+Sans|Righteous&display=swap');
+
+h1 {
+    font-family: 'Righteous', cursive;
+}
+
+h2 {
+    font-family: 'Acme', sans-serif;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-image: url('../assets/hiker-background.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vh;
+}
+
+main {
+    position: relative;
+}
+
+.center {
+    margin: auto;
+    text-align: center;
+}
+
+.center-flex {
+    display: flex;
+    justify-content: center;
+}
+
+select {
+    margin: 10px;
+}
