@@ -12,11 +12,12 @@ class App extends Component {
 
         const header = new Header().render();
         const search = new Search().render();
-        const hikingList = new HikingList({ hikes: [] }).render();
+        const hikingList = new HikingList({ hikes: [] });
+        const hikingListDOM = hikingList.render();
 
         dom.prepend(header);
         main.appendChild(search);
-        main.appendChild(hikingList);
+        main.appendChild(hikingListDOM);
 
         window.addEventListener('hashchange', () => {
             api.getHikes().then(hikes => {
