@@ -6,7 +6,7 @@ class HikingItem extends Component {
 
         return /*html*/ `
             <li>
-                <img src="${hike.imgSmall}" alt="${hike.name}">
+                <img src="${hike.imgMedium ? hike.imgMedium : './assets/no-image.jpg'}" alt="${hike.name}">
                 <h2>${hike.name}</h2>
                 <p>${hike.location}</p>
                 <p>${hike.summary}</p>
