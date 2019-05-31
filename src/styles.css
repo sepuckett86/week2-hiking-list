@@ -14,4 +14,20 @@ body {
     background-size: cover;
     background-attachment: fixed;
     height: 100vh;
+
+}
+
+
+.center {
+    margin: auto;
+    text-align: center;
+}
+
+.center-flex {
+    display: flex;
+    justify-content: center;
+}
+
+select {
+    margin: 10px;
 }
