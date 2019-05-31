@@ -10,7 +10,7 @@ class Loading extends Component {
         `;
         }
         return /*html*/ `
-            <div class="center-flex">
+            <div id="loading" class="center-flex">
                 <img src="./assets/hiking.gif">
             </div>
         `;

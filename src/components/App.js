@@ -51,12 +51,17 @@ class App extends Component {
                     // Update Hiking List
                     hikingList.update({ hikes: this.state.allHikes });
                     loading.update({ done: true });
+                }).then(() => {
+                    const filtered = filterHikes(filter, this.state.allHikes);
+                    hikingList.update({ hikes: filtered });
+                    loading.update({ done: true });
                 });
+            } else {
+                // filter data already retrieved
+                const filtered = filterHikes(filter, this.state.allHikes);
+                hikingList.update({ hikes: filtered });
+                loading.update({ done: true });
             }
-            // filter data already retrieved
-            const filtered = filterHikes(filter, this.state.allHikes);
-            hikingList.update({ hikes: filtered });
-            loading.update({ done: true });
         });
 
         return dom;
