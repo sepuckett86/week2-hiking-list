@@ -1,20 +1,20 @@
 import Component from './Component.js';
 import Header from './Header.js';
 import Search from './Search.js';
+import HikingList from './HikingList.js';
 
 class App extends Component {
     render() {
         const dom = this.renderDOM();
         const main = dom.querySelector('main');
 
-        const header = new Header();
-        const headerDOM = header.render();
+        const header = new Header().render();
+        const search = new Search().render();
+        const hikingList = new HikingList().render();
 
-        const search = new Search();
-        const searchDOM = search.render();
-
-        dom.prepend(headerDOM);
-        main.appendChild(searchDOM);
+        dom.prepend(header);
+        main.appendChild(search);
+        main.appendChild(hikingList);
 
         return dom;
     }
