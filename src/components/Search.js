@@ -17,9 +17,9 @@ class Search extends Component {
     }
     renderTemplate() {
         return /*html*/ `
-            <section>
-                Search hikes within 7 miles of Portland:
-                To see all, hit submit with an empty search.
+            <section id="search">
+                <p>Search hikes within 7 miles of Portland.</p>
+                <p>To see all, hit submit with an empty search.</p>
                 <form>
                     <input type="text">
                     <button>Submit</button>
