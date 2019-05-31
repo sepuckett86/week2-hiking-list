@@ -19,7 +19,10 @@ class App extends Component {
         main.appendChild(hikingList);
 
         window.addEventListener('hashchange', () => {
-            api.getHikes().then(hikes => console.log(hikes));
+            api.getHikes().then(hikes => {
+                console.log(hikes.trails);
+                hikingList.update({ hikes: hikes.trails });
+            });
         });
         
         return dom;

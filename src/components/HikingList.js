@@ -1,6 +1,12 @@
 import Component from './Component.js';
 
 class HikingList extends Component {
+    render() {
+        const dom = this.renderDOM();
+
+        
+        return dom;
+    }
     renderTemplate() {
         return /*html*/ `
             <ul>
