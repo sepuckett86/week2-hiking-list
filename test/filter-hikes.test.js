@@ -37,3 +37,42 @@ test('takes filter and array of objects and returns objects containing filter', 
     // assert
     assert.deepEqual(filtered, expected);
 });
+
+test('case does not matter in search', assert => {
+    // arrange
+    const filter = {
+        search: 'try'
+    };
+
+    const expected = [
+        { 
+            name: 'Tryon Creek Loop',
+            location: 'Lake Oswego, Oregon'
+        }
+    ];
+
+    // act
+    const filtered = filterHikes(filter, hikes);
+    // assert
+    assert.deepEqual(filtered, expected);
+});
+
+
+test('search by location', assert => {
+    // arrange
+    const filter = {
+        search: 'lake'
+    };
+
+    const expected = [
+        { 
+            name: 'Tryon Creek Loop',
+            location: 'Lake Oswego, Oregon'
+        }
+    ];
+
+    // act
+    const filtered = filterHikes(filter, hikes);
+    // assert
+    assert.deepEqual(filtered, expected);
+});

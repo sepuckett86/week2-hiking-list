@@ -15,6 +15,12 @@ class HikingList extends Component {
         return dom;
     }
     renderTemplate() {
+        const hikes = this.props.hikes;
+        if(hikes.length === 0) {
+            return /*html*/ `
+            <p>No results, please try another search.</p>
+        `;
+        }
         return /*html*/ `
             <ul>
             </ul>
