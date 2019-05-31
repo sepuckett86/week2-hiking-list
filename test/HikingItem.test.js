@@ -33,7 +33,7 @@ test('returns corrent Hiking Item html', assert => {
     };
     const expected = /*html*/ `
         <li>
-            <img src="https://cdn-files.apstatic.com/hike/7024665_small_1554847413.jpg" alt="Tryon Creek Loop">
+            <img src="https://cdn-files.apstatic.com/hike/7024665_medium_1554847413.jpg" alt="Tryon Creek Loop">
             <h2>Tryon Creek Loop</h2>
             <p>Lake Oswego, Oregon</p>
             <p>This is an easy loop through a beautiful lush forest that is right in the Portland metro.</p>
