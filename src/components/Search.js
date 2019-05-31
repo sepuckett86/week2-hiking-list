@@ -19,7 +19,6 @@ class Search extends Component {
         return /*html*/ `
             <section id="search">
                 <p>Search hikes within 7 miles of Portland.</p>
-                <p>To see all, hit submit with an empty search.</p>
                 <form>
                     <input type="text">
                     <button>Submit</button>

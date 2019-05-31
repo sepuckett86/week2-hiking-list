@@ -22,26 +22,17 @@ class App extends Component {
         main.appendChild(search);
         main.appendChild(hikingListDOM);
 
-        this.state.allHikes = [];
+        api.getHikes().then(hikes => {
+            // Store data in state
+            this.state.allHikes = hikes.trails;
+            // Update Hiking List
+            hikingList.update({ hikes: this.state.allHikes });
+        });
 
         window.addEventListener('hashchange', () => {
             const filter = hashStorage.get();
-
-            // Get data from API if no data
-            if(this.state.allHikes.length === 0) {
-                api.getHikes().then(hikes => {
-                    // Store data in state
-                    this.state.allHikes = hikes.trails;
-                });
-            }
-            
-            // Update list based on filter
-            if(filter.search === '') {
-                hikingList.update({ hikes: this.state.allHikes });
-            } else {
-                const filtered = filterHikes(filter, this.state.allHikes);
-                hikingList.update({ hikes: filtered });
-            }
+            const filtered = filterHikes(filter, this.state.allHikes);
+            hikingList.update({ hikes: filtered });
         });
 
         return dom;
