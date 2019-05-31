@@ -1,4 +1,5 @@
 import Component from './Component.js';
+import hashStorage from '../hash-storage.js';
 
 class Search extends Component {
     render() {
@@ -9,7 +10,7 @@ class Search extends Component {
 
         form.addEventListener('submit', (event) => {
             event.preventDefault();
-            console.log(input.value);
+            hashStorage.set({ search: input.value });
         });
         
         return dom;
@@ -18,6 +19,7 @@ class Search extends Component {
         return /*html*/ `
             <section>
                 Search hikes within 1 mile of Portland:
+                To see all, hit submit with an empty search.
                 <form>
                     <input type="text">
                     <button>Submit</button>
