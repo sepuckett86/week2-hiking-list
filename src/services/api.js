@@ -7,7 +7,10 @@ const URL = `https://www.hikingproject.com/data/get-trails?lat=45.512230&lon=-12
 const api = {
     getHikes() {
         return fetch(URL)
-            .then(response => response.json());
+            .then(response => {
+                console.log('api call');
+                return response.json();
+            });
     }
 };
 

@@ -5,6 +5,7 @@ import HikingList from './HikingList.js';
 
 import api from '../services/api.js';
 import hashStorage from '../hash-storage.js';
+import filterHikes from '../filter-hikes.js';
 
 class App extends Component {
     render() {
@@ -13,6 +14,7 @@ class App extends Component {
 
         const header = new Header().render();
         const search = new Search().render();
+
         const hikingList = new HikingList({ hikes: [] });
         const hikingListDOM = hikingList.render();
 
@@ -20,18 +22,28 @@ class App extends Component {
         main.appendChild(search);
         main.appendChild(hikingListDOM);
 
-        window.addEventListener('hashchange', () => {
-            const searchString = hashStorage.get().search;
+        this.state.allHikes = [];
 
-            api.getHikes().then(hikes => {
-                console.log(hikes.trails);
-                const filtered = hikes.trails.filter(trail => {
-                    return trail.name.includes(searchString);
+        window.addEventListener('hashchange', () => {
+            const filter = hashStorage.get();
+
+            // Get data from API if no data
+            if(this.state.allHikes.length === 0) {
+                api.getHikes().then(hikes => {
+                    // Store data in state
+                    this.state.allHikes = hikes.trails;
                 });
+            }
+            
+            // Update list based on filter
+            if(filter.search === '') {
+                hikingList.update({ hikes: this.state.allHikes });
+            } else {
+                const filtered = filterHikes(filter, this.state.allHikes);
                 hikingList.update({ hikes: filtered });
-            });
+            }
         });
-        
+
         return dom;
     }
     renderTemplate() {
